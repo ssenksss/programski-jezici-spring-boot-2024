@@ -1,0 +1,60 @@
+-- MySQL dump 10.13  Distrib 8.0.34, for macos13 (arm64)
+--
+-- Host: 127.0.0.1    Database: parfemi_db
+-- ------------------------------------------------------
+-- Server version	8.0.37
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `parfem`
+--
+
+DROP TABLE IF EXISTS `parfem`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `parfem` (
+  `parfem_id` int NOT NULL AUTO_INCREMENT,
+  `naziv` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kategorija_id` int DEFAULT NULL,
+  `brend_id` int DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`parfem_id`),
+  KEY `fk_kategorija_id_idx` (`kategorija_id`),
+  KEY `fk_brend_id_idx` (`brend_id`),
+  CONSTRAINT `fk_brend_id` FOREIGN KEY (`brend_id`) REFERENCES `brend` (`brend_id`) ON DELETE CASCADE,
+  CONSTRAINT `fk_kategorija_id` FOREIGN KEY (`kategorija_id`) REFERENCES `kategorija` (`kategorija_id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `parfem`
+--
+
+LOCK TABLES `parfem` WRITE;
+/*!40000 ALTER TABLE `parfem` DISABLE KEYS */;
+INSERT INTO `parfem` VALUES (1,'N°5 ',1,1,'2024-07-31 17:23:13','2024-09-05 02:54:33',NULL),(2,'Coco Mademoiselle',2,1,'2024-07-31 17:23:13',NULL,NULL),(3,'Pour Homme',3,2,'2024-07-31 17:23:13',NULL,NULL),(4,'Pour Homme Dylan Blue',4,2,'2024-07-31 17:23:13',NULL,NULL),(5,'Crystal Noir',5,2,'2024-07-31 17:23:13',NULL,NULL),(6,'Paradoxe',6,3,'2024-07-31 17:23:13',NULL,NULL),(7,'La Femme',7,3,'2024-07-31 17:23:13',NULL,NULL),(8,'Ombre Nomade',8,4,'2024-07-31 17:23:13',NULL,NULL),(9,'Pacific Chill',9,4,'2024-07-31 17:23:13',NULL,NULL),(10,'Miss Dior',10,5,'2024-07-31 17:23:13',NULL,NULL),(11,'Sauvage',11,5,'2024-07-31 17:23:13',NULL,NULL),(12,'Bloom',12,6,'2024-07-31 17:23:13',NULL,NULL),(13,'Guilty',13,6,'2024-07-31 17:23:13',NULL,NULL),(14,'Devotion',14,7,'2024-07-31 17:23:13',NULL,NULL),(15,'The One',15,7,'2024-07-31 17:23:13',NULL,NULL),(16,'Libre',16,8,'2024-07-31 17:23:13',NULL,NULL),(17,'Black Opium',17,8,'2024-07-31 17:23:13',NULL,NULL),(18,'Kouros',18,8,'2024-07-31 17:23:13',NULL,NULL),(19,'1 Milion',19,9,'2024-07-31 17:23:13',NULL,NULL),(20,'Olympea',20,9,'2024-07-31 17:23:13',NULL,NULL),(21,'212 VIP Men',21,10,'2024-07-31 17:23:13',NULL,NULL),(22,'Good Girl',22,10,'2024-07-31 17:23:13',NULL,NULL),(23,'Bad Boy',23,10,'2024-07-31 17:23:13',NULL,NULL),(24,'Acqua di Gioia',24,11,'2024-07-31 17:23:13',NULL,NULL),(25,'Acqua di Gio',25,11,'2024-07-31 17:23:13',NULL,NULL),(26,'Lost Cherry',26,12,'2024-07-31 17:23:13',NULL,NULL),(27,'Erba Pura',27,13,'2024-07-31 17:23:13',NULL,NULL),(28,'Sweet Vanilla',28,14,'2024-07-31 17:23:13',NULL,NULL),(29,'Sensual Instinct ',29,14,'2024-07-31 17:23:13',NULL,NULL),(30,'Himalaya',30,15,'2024-07-31 17:23:13',NULL,NULL),(31,'Aventus',31,15,'2024-07-31 17:23:13',NULL,NULL),(32,'Silver Mountain',32,15,'2024-07-31 17:23:13',NULL,NULL),(33,'Omnia Crystalline',33,16,'2024-07-31 17:23:13',NULL,NULL),(34,'Omnia Coral',34,16,'2024-07-31 17:23:13',NULL,NULL),(35,'London',35,17,'2024-07-31 17:23:13',NULL,NULL),(36,'Brit Rhythm',36,17,'2024-07-31 17:23:13',NULL,NULL),(37,'Andromeda',37,18,'2024-07-31 17:23:13',NULL,NULL),(38,'Aoud Vanille',38,19,'2024-07-31 17:23:13',NULL,NULL),(39,'Baccarat Rouge 540',39,20,'2024-07-31 17:23:13',NULL,NULL),(40,'Oud Satin Mood',40,20,'2024-07-31 17:23:13',NULL,NULL),(41,'Grand Soir',41,20,'2024-07-31 17:23:13',NULL,NULL),(42,'Good Girl Gone Bad',42,21,'2024-07-31 17:23:13',NULL,NULL),(43,'Bitter Peach',1,12,'2024-08-05 22:28:33',NULL,'2024-08-05 23:56:42'),(44,'Cherry Smokeee',1,12,'2024-08-06 00:18:31','2024-08-06 00:56:55','2024-08-06 01:18:26'),(45,'Addict',8,5,'2024-08-06 01:22:49',NULL,NULL),(46,'Parfem Example',3,1,'2024-08-06 16:18:06',NULL,NULL),(47,'Parfemmmmmi Example',8,1,'2024-08-06 16:20:00','2024-08-06 16:21:41',NULL),(48,'P Example',8,2,'2024-08-06 23:16:28','2024-09-03 02:23:08',NULL),(49,'Peee Example',8,12,'2024-08-06 23:17:28',NULL,'2024-08-06 23:18:21'),(50,'Nazivv parfema',1,1,'2024-08-07 01:49:30','2024-09-02 21:29:32',NULL),(51,'fdaa Examppple',8,1,'2024-08-07 01:50:58','2024-09-03 01:54:38',NULL),(52,'sndcksnic Exampl',8,7,'2024-08-07 01:53:09','2024-09-02 19:24:15',NULL),(53,'Nazivv parfemsassaa',1,1,'2024-09-02 21:38:38',NULL,NULL),(54,'Naziv parfff',1,9,'2024-09-02 21:43:52','2024-09-03 01:23:45',NULL),(55,'N',1,13,'2024-09-03 16:17:50',NULL,NULL),(56,'g',8,5,'2024-09-03 16:20:20',NULL,NULL),(57,'ihgvvjhv',8,1,'2024-09-03 16:22:42','2024-09-03 16:22:57',NULL),(58,'xv',8,1,'2024-09-03 16:36:13',NULL,'2024-09-03 16:43:50');
+/*!40000 ALTER TABLE `parfem` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-09-05 15:23:14
