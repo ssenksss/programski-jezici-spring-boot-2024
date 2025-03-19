@@ -1,0 +1,25 @@
+const searchInput = document.getElementById('search')
+const params = new URLSearchParams(window.location.search)
+const searchParam = params.get('search')
+
+searchInput.addEventListener('onreset', ()=>{
+    alert('reset radi?')
+})
+
+if(searchParam != null && searchParam != ''){
+searchInput.value = searchParam
+}
+
+searchInput.addEventListener('keypress', (e)=>{
+    if(e.key=='Enter') doSearch()
+})
+
+document.getElementById('search-btn')
+    .addEventListener('click', () => {
+        doSearch()
+    })
+function doSearch(){
+    if(searchInput.value == '') return
+        window.location.href = `./index.html?search=${searchInput.value}`
+    
+}
